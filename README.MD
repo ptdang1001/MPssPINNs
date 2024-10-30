@@ -2,6 +2,12 @@
 
 ## Change Log
 
+### v0.64
+- New name: MPssPINNs
+- Update ploting loss curve function
+- Better file saving
+- Fix some bugs
+
 ### v0.6
 - Release the initial version and installation manual
 - Release Antigen Presentation Pathway
@@ -13,7 +19,7 @@
 
 
 ### To be released soon 
-If you have an interested topic, please feel free to open an [issue](https://github.com/ptdang1001/MPOSNN/issues) or I can also merge your completed function into main branch
+If you have an interested topic, please feel free to open an issue or I can also merge your completed function into main branch
 
 ## Introduction
 
@@ -52,46 +58,47 @@ We further checked how M_8 level varies with respect to responsiveness, MSI stat
 
 ## Requirements and Installation
 
-MPOSNN is implemented by Python3. If you don't have python, please download [Anaconda](https://www.anaconda.com/download/#linux) with python 3 version.
-
-- torch >= 1.13.1
-- numpy >= 1.23.3
-- pandas >= 1.4.4
-- matplotlib >=3.6.2
-- magic >= 2.0.4
-- scikit-learn >= 1.1.1
-- networkx >= 2.8.8
-- pytorch-lightning >= 1.8.1
+MPssPINNs is implemented by Python3. If you don't have python, please download [Anaconda](https://www.anaconda.com/download/#linux) with python 3 version.
 
 Download MPOSNN:
 ```
 git clone https://github.com/ptdang1001/MPOSNN.git
 ```
 
+```
+# Create environment with Python
+conda create --name MPssPINNs
+
+# Activate the environment
+conda activate MPssPINNs
+
+conda install --file requirements
+```
+
 Install requirements:
 ```
-cd MPOSNN
-conda install --file requirements
-conda install pytorch torchvision -c pytorch
-pip install --user magic-impute
+cd MPssPINNs
+
 ```
 
 ## Usage
 
-You can see the input arguments for MPOSNN by help option:
+You can see the input arguments for MPssPINNs by help option:
 ```
 python src/main.py --help
-usage: main.py [-h] [--input_dir INPUT_DIR] [--output_dir OUTPUT_DIR] [--geneExpression_file_name GENEEXPRESSION_FILE_NAME] [--compounds_modules_file_name COMPOUNDS_MODULES_FILE_NAME] [--modules_genes_file_name MODULES_GENES_FILE_NAME] [--n_epoch_all N_EPOCH_ALL]
+usage: main.py [-h] [--input_dir INPUT_DIR] [--network_dir NETWORK_DIR] [--output_dir OUTPUT_DIR] [--geneExpression_file_name GENEEXPRESSION_FILE_NAME] [--compounds_modules_file_name COMPOUNDS_MODULES_FILE_NAME] [--modules_genes_file_name MODULES_GENES_FILE_NAME] [--n_epoch_all N_EPOCH_ALL]
                [--imbalance_loss_limit_all IMBALANCE_LOSS_LIMIT_ALL] [--save_predictions SAVE_PREDICTIONS] [--pca_components_selection PCA_COMPONENTS_SELECTION] [--do_imputation DO_IMPUTATION] [--experiment_name EXPERIMENT_NAME] [--module_source MODULE_SOURCE]
                [--load_checkpoints_dir LOAD_CHECKPOINTS_DIR] [--load_weights_folder LOAD_WEIGHTS_FOLDER] [--n_epoch_scfea N_EPOCH_SCFEA] [--n_epoch_mpo N_EPOCH_MPO] [--n_epoch_snn N_EPOCH_SNN] [--do_train_snn DO_TRAIN_SNN] [--n_train_batch_snn N_TRAIN_BATCH_SNN]
                [--do_predict_snn DO_PREDICT_SNN] [--output_grad_snn OUTPUT_GRAD_SNN]
 
-MPOSNN: A Massage Passing Optimizer-Based Supervised Neural Network Model to Estimate Cell-Wise Metabolic Using Single Cell RNA-seq Data.
+MPssPINNs: A message passing-based self-supervised PINNs for general ODE/PDE problems.
 
 options:
   -h, --help            show this help message and exit
   --input_dir INPUT_DIR
                         The inputs directory.
+  --network_dir NETWORK_DIR
+                        The reaction network directory
   --output_dir OUTPUT_DIR
                         The outputs directory, you can find all outputs in this directory.
   --geneExpression_file_name GENEEXPRESSION_FILE_NAME
@@ -227,7 +234,7 @@ For any other further questions or requests, please contact the Principle Invest
 - [Prof. Chi Zhang](https://zcslab.github.io/)
 (zhangchi@ohsu.edu)
 
-PhD candidate at [Biomedical Data Research Lab (BDRL)](https://zcslab.github.io/) , Indiana University School of Medicine
+PhD candidate at [Biomedical Data Research Lab (BDRL)](https://zcslab.github.io/) , OHSU
 
 
 ## Reference
