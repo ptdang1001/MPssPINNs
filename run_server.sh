@@ -2,12 +2,12 @@
 
 # You may need to update some parameters depends on your server
 #SBATCH -J MPssPINNs
-#SBATCH -p general
-#SBATCH -A r00077
+#SBATCH -p xxxxx
+#SBATCH -A xxxxxx
 #SBATCH -o %j_log.out
 #SBATCH -e %j_log.err
 #SBATCH --mail-type=ALL
-#SBATCH --mail-user=your_email@xxx.com
+#SBATCH --mail-user=xxxxxxx@xxx.com
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=24
