@@ -2,7 +2,7 @@
 
 ## Change Log
 
-### v0.64
+### v0.7
 - New name: MPssPINNs
 - Update ploting loss curve function
 - Better file saving
@@ -60,7 +60,7 @@ We further checked how M_8 level varies with respect to responsiveness, MSI stat
 
 MPssPINNs is implemented by Python3. If you don't have python, please download [Anaconda](https://www.anaconda.com/download/#linux) with python 3 version.
 
-Download MPOSNN:
+Download MPssPINNs:
 ```
 git clone https://github.com/ptdang1001/MPssPINNs.git
 ```
@@ -71,14 +71,13 @@ conda create --name MPssPINNs
 
 # Activate the environment
 conda activate MPssPINNs
-
-conda install --file requirements
 ```
 
 Install requirements:
 ```
 cd MPssPINNs
 
+conda install --file requirements
 ```
 
 ## Usage
@@ -208,17 +207,17 @@ You can find the results in the directory "outputs", please click [here](https:/
 
 python src/main.py --geneExpression_file_name TCGA.csv.gz --compounds_modules_file_name ANT2_compounds_modules.csv --modules_genes_file_name ANT2_modules_genes.json --module_source ANT2 --experiment_name FluxEstimation
 
+or 
+
+sh run_local.sh # running on your local machine
+
+or 
+
+sh run_server.sh # running on a server
+
+# Please don't forget to update some parameters like data file name in run_local.sh/run_server.sh 
+
 ```
-
-** No Training, Predicting only example: **
-```
-# just copy your data into the directory "inputs"
-# you have to train the model at least once befor this predicting only step. We don't offer default trained model. 
-# you can get the results in the directory "outputs"
-
-#python src/main.py --geneExpression_file_name "your scRNA-seq data file name" --modules_genes_file_name "your modules and genes file" --module_source "your pathway name" --experiment_name "your experiment name" --load_weights_folder "The folder name you got from the tranning step" --do_train_snn 0
-
-python src/main.py --geneExpression_file_name TCGA.csv.gz --modules_genes_file_name ANT2_modules_genes.json --module_source ANT2 --experiment_name FluxEstimation --load_weights_folder TCGA_ANT2_FluxEstimation_00001 --do_train_snn 0
 
 
 ```
