@@ -1,0 +1,11 @@
+python ./src/main.py \
+    --input_dir /home/users/dangpe/BDRL_pengtao/Data/scRNA_seq/ \
+    --network_dir /home/users/dangpe/BDRL_pengtao/Data/Reaction_Data/ \
+    --output_dir /home/users/dangpe/BDRL_pengtao/Results/scFEA/ \
+    --geneExpression_file_name GSE72056_gene569_cell4486.csv.gz \
+    --compounds_modules_file_name M171_V3_connected_cmMat.csv \
+    --modules_genes_file_name M171_V3_connected_reactions_genes.json \
+    --experiment_name Flux \
+    --n_epoch_all 3 \
+    --n_epoch_scfea 5 \
+    --n_epoch_mpo 5
