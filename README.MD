@@ -25,7 +25,7 @@ If you have an interested topic, please feel free to open an issue or I can also
 
 >We developed a Message Passing Optimizer-Based Supervised Neural Network to Estimate the Cell-Wise Metabolic Using Single Cell RNA-seq Data. To infer single cell fluxome from single cell RNA-sequencing (scRNA-seq) data, Our framework is powered by three sub-algorithms:(1) scFEA(single cell Flux Estimation Analysis), a self-constrained Graph Neural Network to generate the initial flux values; (2) MPO(Message Passing Optimizer), a Belief Propagation-based message passing algorithm to optimize the initial flux values; (3) SNN(Supervised Neural Network), a neural network-based supervised learning algorithm to learn the predictor between the optimized flux values and the scRNA-seq data.
 
-## The computational framework of MPOSNN
+## The computational framework of MPssPINNs
 
 <p align="center">
   <img width="80%" src="https://github.com/ptdang1001/MPOSNN/blob/main/inputs/tmp/MPOSNN.png">
@@ -62,7 +62,7 @@ MPssPINNs is implemented by Python3. If you don't have python, please download [
 
 Download MPOSNN:
 ```
-git clone https://github.com/ptdang1001/MPOSNN.git
+git clone https://github.com/ptdang1001/MPssPINNs.git
 ```
 
 ```
