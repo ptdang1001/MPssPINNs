@@ -1,12 +1,13 @@
 #!/bin/zsh
 
+# You may need to update some parameters depends on your server
 #SBATCH -J MPssPINNs
 #SBATCH -p general
 #SBATCH -A r00077
-#SBATCH -o /N/slate/pdang/myProjectsDataRes/jobOutputs/%j.out
-#SBATCH -e /N/slate/pdang/myProjectsDataRes/jobOutputs/%j.err
+#SBATCH -o %j_log.out
+#SBATCH -e %j_log.err
 #SBATCH --mail-type=ALL
-#SBATCH --mail-user=pdang@iu.edu
+#SBATCH --mail-user=your_email@xxx.com
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=24
@@ -15,14 +16,14 @@
 
 #module load
 
-python MPssPINNs/src/main.py \
-    --input_dir /N/slate/pdang/myProjectsDataRes/20211201FLUXOptimization/data/ \
-    --output_dir /N/slate/pdang/myProjectsDataRes/20211201FLUXOptimization/result/MPSSFE_results/ \
-    --geneExpression_file_name xbUTSW.csv \
-    --compounds_modules_file_name module_info/Lipid_V9_cmMat.csv \
-    --modules_genes_file_name module_info/Lipid_V9_modules_genes.json \
-    --experiment_name flux \
-    --network_name Lipid_V9 \
-    --n_epoch_all 1 \
-    --n_epoch_scfea 5 \
-    --n_epoch_mpo 5
+python ./src/main.py \
+    --input_dir ./inputs/Data/ \
+    --network_dir ./inputs/network_info/ \
+    --output_dir ./outputs/ \
+    --geneExpression_file_name GSE72056_gene569_cell4486.csv.gz \
+    --compounds_modules_file_name M171_V3_connected_cmMat.csv \
+    --modules_genes_file_name M171_V3_connected_reactions_genes.json \
+    --experiment_name Flux \
+    --n_epoch_all 150 \
+    --n_epoch_scfea 100 \
+    --n_epoch_mpo 50
